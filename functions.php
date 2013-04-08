@@ -25,7 +25,7 @@ namespace lowtone\libre {
 	
 	Theme::init(array(
 			Theme::INIT_PACKAGES => array("lowtone", "lowtone\\wp"),
-			Theme::INIT_MERGE_PATH => __NAMESPACE__,
+			Theme::INIT_MERGED_PATH => __NAMESPACE__,
 			Theme::INIT_SUCCESS => function() {
 
 				// Set config defaults
