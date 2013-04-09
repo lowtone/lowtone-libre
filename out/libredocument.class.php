@@ -63,8 +63,8 @@ class LibreDocument extends Document {
 			if ($libreDocument->getBuildOption(LibreDocument::BUILD_INFO)) {
 
 				$info = array(
-					"home",
-					"siteurl",
+					// "home",
+					// "siteurl",
 					"url",
 					"wpurl",
 					"description",
