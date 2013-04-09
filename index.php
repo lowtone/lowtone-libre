@@ -74,7 +74,7 @@ namespace lowtone\libre {
 		$libreDocument->build($options);
 		
 		if (is_super_admin() && isset($_GET["debug"])) 
-			$libreDocument->out(Document::TYPE_XML);
+			$libreDocument->out(array(Document::OPTION_CONTENT_TYPE => Document::CONTENT_TYPE_XML));
 			
 		if ($template = template()) {
 			if (@constant("LOWTONE_LIBRE_APPEND_TEMPLATES") && ($appendTemplates = apply_filters("libre_append_templates", array(), $template))) {
