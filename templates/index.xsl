@@ -84,7 +84,7 @@
 	<!-- Side -->
 
 	<xsl:template name="side">
-		<xsl:param name="width" />
+		<xsl:param name="width">one-third</xsl:param>
 
 		<xsl:choose>
 			<xsl:when test="sidebars/sidebar[@id='home']">
