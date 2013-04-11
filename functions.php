@@ -285,16 +285,18 @@ namespace lowtone\libre {
 				}, 10, 2);
 
 				add_action("save_post", function($postId, $post) {
-					if ("page" == $_POST["post_type"])
-						update_post_meta($postId, "_lowtone_libre_page_template", $_POST["page_template"]);
+					$postType = $post->{Post::PROPERTY_POST_TYPE};
+
+					if ("page" == $postType)
+						update_post_meta($postId, "_lowtone_libre_page_template", @$_POST["page_template"]);
 
 					if (Util::isAutosave())
 						return;
 
-					switch ($_POST["post_type"]) {
+					switch ($postType) {
 						case "post":
 						case "page":
-							update_post_meta($postId, "_lowtone_libre_sidebars", $_POST["sidebars"]);
+							update_post_meta($postId, "_lowtone_libre_sidebars", @$_POST["sidebars"]);
 							break;
 					}
 				}, 10, 2);
