@@ -296,7 +296,12 @@ namespace lowtone\libre {
 					switch ($postType) {
 						case "post":
 						case "page":
-							update_post_meta($postId, "_lowtone_libre_sidebars", @$_POST["sidebars"]);
+						
+							if (($sidebars = @$_POST["sidebars"]) > 0)
+								update_post_meta($postId, "_lowtone_libre_sidebars", $sidebars);
+							else
+								delete_post_meta($postId, "_lowtone_libre_sidebars");
+							
 							break;
 					}
 				}, 10, 2);
