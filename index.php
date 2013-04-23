@@ -78,7 +78,7 @@ namespace lowtone\libre {
 			
 		if ($template = template()) {
 			if (@constant("LOWTONE_LIBRE_APPEND_TEMPLATES") && ($appendTemplates = apply_filters("libre_append_templates", array(), $template))) {
-				$cachedFile = dirname($template) . "/.cache/" . basename($template, ".xsl") . "-" . sha1(filectime($template) . "|" . serialize($appendTemplates)) . ".xsl";
+				$cachedFile = dirname($template) . "/.cache/" . basename($template, ".xsl") . "-" . sha1(filemtime($template) . "|" . serialize($appendTemplates)) . ".xsl";
 
 				if (!file_exists($cachedFile)) {
 					$templateDocument = new Document(); // Create first, set properties, load later
