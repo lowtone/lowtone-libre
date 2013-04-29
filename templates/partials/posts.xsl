@@ -25,9 +25,14 @@
 			
 			<xsl:choose>
 				<xsl:when test="$hasPosts">
-					<xsl:apply-templates select="post">
-						<xsl:with-param name="single" select="boolean(@single)" />
-					</xsl:apply-templates>
+					<xsl:choose>
+						<xsl:when test="boolean(//query/@single)">
+							<xsl:apply-templates select="post" mode="single" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:apply-templates select="post" />
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:when>
 				<xsl:otherwise>
 					<p class="no-items"><xsl:value-of select="locales/no_posts" /></p>
