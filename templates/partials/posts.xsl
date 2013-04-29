@@ -25,8 +25,10 @@
 			
 			<xsl:choose>
 				<xsl:when test="$hasPosts">
+					<xsl:variable name="single" select="boolean(//query/@single)" />
+
 					<xsl:choose>
-						<xsl:when test="boolean(//query/@single)">
+						<xsl:when test="$single">
 							<xsl:apply-templates select="post" mode="single" />
 						</xsl:when>
 						<xsl:otherwise>
@@ -42,7 +44,7 @@
 	</xsl:template>
 	
 	
-	<!-- Single post -->
+	<!-- Post -->
 	
 	<xsl:template match="post">
 		<xsl:param name="single" />
@@ -82,6 +84,15 @@
 			<xsl:apply-templates select="adjacent" />
 			<xsl:call-template name="comments" />
 		</article>
+	</xsl:template>
+	
+	
+	<!-- Single post -->
+
+	<xsl:template match="post" mode="single">
+		<xsl:apply-templates select=".">
+			<xsl:with-param name="single" select="true()" />
+		</xsl:apply-templates>
 	</xsl:template>
 
 
