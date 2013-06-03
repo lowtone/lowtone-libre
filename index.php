@@ -21,7 +21,7 @@ namespace lowtone\libre {
 		lowtone\libre\out\LibreDocument;
 
 	if (!class_exists("lowtone\\libre\\out\\LibreDocument"))
-		return trigger_error("Libre theme not initiated", E_USER_ERROR);
+		return trigger_error("Libre theme not initiated", E_USER_WARNING) && false;
 	
 	Util::call(function() {
 
