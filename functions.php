@@ -8,8 +8,6 @@
 
 namespace lowtone\libre {
 	
-	// Init Lowtone Util
-	
 	use lowtone\Util,
 		lowtone\io\logging\Log,
 		lowtone\content\packages\themes\Theme,
@@ -22,8 +20,10 @@ namespace lowtone\libre {
 	
 	if (!include_once WP_PLUGIN_DIR . "/lowtone-content/lowtone-content.php") 
 		return trigger_error("Lowtone Content plugin is required", E_USER_WARNING) && false;
+
+	// Init
 	
-	Theme::init(array(
+	$__i = Theme::init(array(
 			Theme::INIT_PACKAGES => array("lowtone", "lowtone\\wp"),
 			Theme::INIT_MERGED_PATH => __NAMESPACE__,
 			Theme::INIT_SUCCESS => function() {
@@ -342,9 +342,13 @@ namespace lowtone\libre {
 					}
 					
 				}
-					
-			}
+				
+				return true;
+			},
 		));
+	
+	if (!$__i)
+		return false;
 	
 	// Functions
 	
