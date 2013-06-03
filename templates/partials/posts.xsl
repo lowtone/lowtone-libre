@@ -127,7 +127,7 @@
 
 	<xsl:template name="post_author">
 		<dl class="author">
-			<dt>Author</dt>
+			<dt><xsl:value-of select="locales/author_title" /></dt>
 			<dd itemprop="author"><a href="{user/permalink}"><xsl:value-of select="user/display_name" /></a></dd>
 		</dl>
 	</xsl:template>
