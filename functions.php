@@ -119,7 +119,7 @@ namespace lowtone\libre {
 						"after_title" => "</h1></header>"
 					));
 				});
-				// var_dump($GLOBALS["wp_registered_sidebars"]);
+				
 				// Image sizes
 				
 				if ($themeData["thumbnail_size"])
@@ -127,6 +127,11 @@ namespace lowtone\libre {
 
 				foreach ($themeData["image_sizes"] as $size) 
 					add_image_size($size["name"], $size["width"], $size["height"], $size["crop"]);
+
+				// Post formats
+				
+				if ($themeData["post_formats"])
+					add_theme_support("post-formats", (array) $themeData["post_formats"]);
 
 				// Add to head
 
@@ -237,8 +242,11 @@ namespace lowtone\libre {
 
 								$selected = get_post_meta($post->ID, "_lowtone_libre_page_template", true);
 								
-								foreach ($templates as $id => $file) 
-									echo '<option value="' . esc_attr($basename = basename($file)) . '"' . ($basename == $selected ? ' selected="selected"' : "") . '>' . $id . '</option>';
+								foreach ($templates as $id => $file) {
+									$templateData = templateData($file);
+
+									echo '<option value="' . esc_attr($basename = basename($file)) . '"' . ($basename == $selected ? ' selected="selected"' : "") . '>' . (isset($templateData["name"]) ? $templateData["name"] : $id) . '</option>';
+								}
 
 								echo '</select>';
 									
@@ -381,9 +389,11 @@ namespace lowtone\libre {
 		$headers = array_merge(
 			array_combine($sidebarKeys, $sidebarHeaders),
 			array(
+				"theme_support" => "Theme support",
 				"menus" => "Menus",
 				"thumbnail_size" => "Thumbnail size",
-				"image_sizes" => "Image sizes"
+				"image_sizes" => "Image sizes",
+				"post_formats" => "Post formats",
 			)
 		);
 		
@@ -391,7 +401,14 @@ namespace lowtone\libre {
 		
 		$keys = array_keys($additional);
 
-		$parseImageSizes = function($value) {
+		$explode = function($value) {
+			if (!trim($value))
+				return NULL;
+
+			return array_map("trim", str_getcsv($value));
+		};
+
+		$parseImageSizes = function($value) use ($explode) {
 			return array_map(function($size) {
 				@list($dimensions, $name, $crop) = array_reverse(array_map("trim", explode(":", $size)));
 
@@ -403,10 +420,10 @@ namespace lowtone\libre {
 						"height" => $height,
 						"crop" => "crop" == $crop
 					);
-			}, explode(",", $value));
+			}, (array) $explode($value));
 		};
 		
-		$additional = array_combine($keys, array_map(function($value, $key) use ($parseImageSizes) {
+		$additional = array_combine($keys, array_map(function($value, $key) use ($explode, $parseImageSizes) {
 			switch ($key) {
 				case "404_sidebars":
 				case "search_sidebars":
@@ -430,17 +447,25 @@ namespace lowtone\libre {
 				case "sidebars":
 					$value = is_numeric($value) ? (int) $value : 4;
 					break;
+
+				case "theme_support":
+					$value = $explode($value);
+					break;
 					
 				case "menus":
-					$value = array_map("trim", str_getcsv($value));
+					$value = $explode($value);
 					break;
 
 				case "thumbnail_size":
-					$value = reset($parseImageSizes($value));
+					$value = reset($parseImageSizes($value)) ?: NULL;
 					break;
 
 				case "image_sizes":
 					$value = $parseImageSizes($value);
+					break;
+
+				case "post_formats":
+					$value = $explode($value);
 					break;
 			}
 			
@@ -475,6 +500,47 @@ namespace lowtone\libre {
 		return extractFileData(get_template_directory() . "/style.css", $header);
 	}
 	
+	/**
+	 * Extract data from an XSL template.
+	 * @param string $file The path for the XSL file.
+	 * @return array Returns the data array.
+	 */
+	function templateData($file) {
+		$data = array();
+
+		if (!($document = \DOMDocument::load($file)))
+			return $data;
+
+		$xpath = new \DOMXPath($document);
+
+		if (!($comment = $xpath->query("//comment()[1]")->item(0)))
+			return $data;
+
+		$tag = NULL;
+
+		$tags = array();
+		
+		foreach (explode("\n", $comment->nodeValue) as $line) {
+			$line = trim($line);
+
+			if (preg_match("/^@([[:alpha:]-_]+)(.+)/i", $line, $matches)) {
+				$tag = strtolower(trim($matches[1]));
+				$line = trim($matches[2]);
+			}
+
+			if (!$tag)
+				continue;
+
+			$tags[$tag][] = $line;
+		}
+
+		$data = array_map(function($lines) {
+			return implode(" ", array_filter($lines));
+		}, $tags);
+
+		return $data;
+	}
+
 	/**
 	 * Get the path for an XSL template for the current context.
 	 * @return string|bool Returns the path for the template on success or FALSE 
