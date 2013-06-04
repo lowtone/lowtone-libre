@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lowtone Libre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 15:47+0100\n"
-"PO-Revision-Date: 2013-06-03 15:48+0100\n"
+"POT-Creation-Date: 2013-06-04 15:52+0100\n"
+"PO-Revision-Date: 2013-06-04 15:57+0100\n"
 "Last-Translator: Paul van der Meijs <info@lowtone.nl>\n"
 "Language-Team: Lowtone <info@lowtone.nl>\n"
 "Language: nl_NL\n"
@@ -16,106 +16,171 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../functions.php:206
+#: ../functions.php:117
+#, php-format
+msgid "This sidebar is available when \"%s\" is displayed."
+msgstr "Deze zijbalk is beschikbaar wanneer \"%s\" weergegven wordt."
+
+#: ../functions.php:213
 msgid "Page Attributes"
-msgstr ""
+msgstr "Pagina attributen"
 
-#: ../functions.php:206
+#: ../functions.php:213
 msgid "Attributes"
-msgstr ""
+msgstr "Attributen"
 
-#: ../functions.php:215
+#: ../functions.php:222
 msgid "(no parent)"
-msgstr ""
+msgstr "(geen hoofd)"
 
-#: ../functions.php:225 ../functions.php:226
+#: ../functions.php:232 ../functions.php:233
 msgid "Parent"
-msgstr ""
+msgstr "Hoofd"
 
-#: ../functions.php:233
+#: ../functions.php:240
 msgid "Template"
-msgstr ""
+msgstr "Sjabloon"
 
-#: ../functions.php:234
+#: ../functions.php:241
 msgid "Page Template"
-msgstr ""
+msgstr "Pagina sjabloon"
 
-#: ../functions.php:236
+#: ../functions.php:243
 msgid "Default Template"
-msgstr ""
+msgstr "Standaard sjabloon"
 
-#: ../functions.php:247 ../functions.php:248
+#: ../functions.php:257 ../functions.php:258
 msgid "Order"
-msgstr ""
+msgstr "Volgorde"
 
-#: ../functions.php:251
+#: ../functions.php:261
 msgid "Need help? Use the Help tab in the upper right of your screen."
-msgstr ""
+msgstr "Hulp nodig? Gebruik de helptab rechtsboven op je scherm."
 
-#: ../functions.php:262 ../functions.php:271
+#: ../functions.php:272 ../functions.php:281
 msgid "Sidebars"
 msgstr "Zijbalken"
 
-#: ../functions.php:278
+#: ../functions.php:288
 #, php-format
 msgid "Click <a href=\"%s\">here</a> to configure the widgets."
 msgstr "Klik <a href=\"%s\">hier</a> om widgets te configureren."
 
-#: ../functions.php:724
+#: ../functions.php:794
 msgid "404"
 msgstr "404"
 
-#: ../functions.php:725
+#: ../functions.php:794
+msgid "This sidebar is displayed when a page is not found."
+msgstr "Deze zijbalk is zichtbaar wanneer een pagina niet gevonden kan worden."
+
+#: ../functions.php:795
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../functions.php:726
+#: ../functions.php:795
+msgid "This sidebar is displayed with search results."
+msgstr "Deze zijbalk wordt bij zoekresultaten weergegeven."
+
+#: ../functions.php:796
 msgid "Tax"
 msgstr "Tax"
 
-#: ../functions.php:727
+#: ../functions.php:796
+msgid "This sidebar is displayed with taxonomies."
+msgstr "Deze zijbalk is zichtbaar bij taxonomieën."
+
+#: ../functions.php:797
 msgid "Home"
 msgstr "Home"
 
-#: ../functions.php:728
+#: ../functions.php:797
+msgid "This sidebar is visible on the main post index."
+msgstr "Deze zijbalk is zichtbaar bij de hoofdindex van berichten."
+
+#: ../functions.php:798
 msgid "Front Page"
 msgstr "Voorpagina"
 
-#: ../functions.php:729
+#: ../functions.php:798
+msgid "This sidebar is only visible on the front page."
+msgstr "Deze zijbalk is zichtbaar op de voorpagina."
+
+#: ../functions.php:799
 msgid "Attachment"
 msgstr "Bijlage"
 
-#: ../functions.php:730
+#: ../functions.php:799
+msgid "This sidebar is displayed with attachments."
+msgstr "Deze zijbalk wordt weergegeven bij bijlagen."
+
+#: ../functions.php:800
 msgid "Single"
 msgstr "Enkel"
 
-#: ../functions.php:731
+#: ../functions.php:800
+msgid ""
+"This sidebar is visible when a single post is displayed (not with pages)."
+msgstr ""
+"Deze zijbalk is zichtbaar wanneer een enkel bericht wordt weergegeven (niet "
+"op pagina's)."
+
+#: ../functions.php:801
 msgid "Page"
 msgstr "Pagina"
 
-#: ../functions.php:732
+#: ../functions.php:801
+msgid "This sidebar is visible when a page is displayed."
+msgstr "Deze zijbalk is zichtbaar wanneer een pagina wordt weergegeven."
+
+#: ../functions.php:802
 msgid "Category"
 msgstr "Categorie"
 
-#: ../functions.php:733
+#: ../functions.php:802
+msgid "This sidebar is displayed with categories."
+msgstr "Deze zijbalk is zichtbaar bij categorieën."
+
+#: ../functions.php:803
 msgid "Tag"
 msgstr "Tag"
 
-#: ../functions.php:734
+#: ../functions.php:803
+msgid "This sidebar is displayed with tags."
+msgstr "Deze zijbalk is zichtbaar bij tags."
+
+#: ../functions.php:804
 msgid "Author"
 msgstr "Auteur"
 
-#: ../functions.php:735
+#: ../functions.php:804
+msgid "This sidebar is displayed when an author is displayed."
+msgstr "Deze zijblk wordt weergegeven bij een auteur."
+
+#: ../functions.php:805
 msgid "Date"
 msgstr "Datum"
 
-#: ../functions.php:736
+#: ../functions.php:805
+msgid "This sidebar is displayed a specific date is displayed."
+msgstr ""
+"Deze zijbalk is zichtbaar wanneer een specifieke datum wordt weergegeven."
+
+#: ../functions.php:806
 msgid "Archive"
 msgstr "Archief"
 
-#: ../functions.php:737
+#: ../functions.php:806
+msgid "This sidebar is displayed when the archive is displayed."
+msgstr "Deze zijbalk wordt weergegeven bij het archief."
+
+#: ../functions.php:807
 msgid "Sidebar"
 msgstr "Zijbalk"
+
+#: ../functions.php:807
+msgid "Default sidebar available on every page."
+msgstr "Standaard zijbalk beschikbaar op elke pagina."
 
 #: ../shortcodes/readmore.php:26
 msgid "Read more"

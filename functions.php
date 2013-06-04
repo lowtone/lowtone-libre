@@ -82,6 +82,7 @@ namespace lowtone\libre {
 					register_sidebars($number, array(
 						"name" => $attributes[2] . ($number > 1 ? " %d" : ""),
 						"id" => $id,
+						"description" => $attributes[3],
 						"before_widget" => '<div id="%1$s" class="%2$s">', 
 						"after_widget" => "</div>",
 						"before_title" => "<header><h1>",
@@ -111,8 +112,9 @@ namespace lowtone\libre {
 						return;
 					
 					register_sidebars($number, array(
-						"name" => __(get_post_type_object($post->post_type())->labels->singular_name) . ": " . $post->post_title() . ($number > 1 ? " %d" : ""),
+						"name" => __(get_post_type_object($post->{Post::PROPERTY_POST_TYPE})->labels->singular_name) . ": " . $post->{Post::PROPERTY_POST_TITLE} . ($number > 1 ? " %d" : ""),
 						"id" => "post:" . $post->post_name(),
+						"description" => sprintf(__('This sidebar is available when "%s" is displayed.', "lowtone_libre"), $post->{Post::PROPERTY_POST_TITLE}),
 						"before_widget" => '<div id="%1$s" class="%2$s">', 
 						"after_widget" => "</div>",
 						"before_title" => "<header><h1>",
@@ -789,20 +791,20 @@ namespace lowtone\libre {
 	 */
 	function sidebarAttributes() {
 		return array(
-			"404" => array("404_sidebars", "404 Sidebars", __("404", "lowtone_libre")),
-			"search" => array("search_sidebars", "Search Sidebars", __("Search", "lowtone_libre")),
-			"tax" => array("tax_sidebars", "Tax Sidebars", __("Tax", "lowtone_libre")),
-			"home" => array("home_sidebars", "Home Sidebars", __("Home", "lowtone_libre")),
-			"front_page" => array("front_page_sidebars", "Front Page Sidebars", __("Front Page", "lowtone_libre")),
-			"attachment" => array("attachment_sidebars", "Attachment Sidebars", __("Attachment", "lowtone_libre")),
-			"single" => array("single_sidebars", "Single Sidebars", __("Single", "lowtone_libre")),
-			"page" => array("page_sidebars", "Page Sidebars", __("Page", "lowtone_libre")),
-			"category" => array("category_sidebars", "Category Sidebars", __("Category", "lowtone_libre")),
-			"tag" => array("tag_sidebars", "Tag Sidebars", __("Tag", "lowtone_libre")),
-			"author" => array("author_sidebars", "Author Sidebars", __("Author", "lowtone_libre")),
-			"date" => array("date_sidebars", "Date Sidebars", __("Date", "lowtone_libre")),
-			"archive" => array("archive_sidebars", "Archive Sidebars", __("Archive", "lowtone_libre")),
-			"sidebar" => array("sidebars", "Sidebars", __("Sidebar", "lowtone_libre")),
+			"404" => array("404_sidebars", "404 Sidebars", __("404", "lowtone_libre"), __("This sidebar is displayed when a page is not found.", "lowtone_libre")),
+			"search" => array("search_sidebars", "Search Sidebars", __("Search", "lowtone_libre"), __("This sidebar is displayed with search results.", "lowtone_libre")),
+			"tax" => array("tax_sidebars", "Tax Sidebars", __("Tax", "lowtone_libre"), __("This sidebar is displayed with taxonomies.", "lowtone_libre")),
+			"home" => array("home_sidebars", "Home Sidebars", __("Home", "lowtone_libre"), __("This sidebar is visible on the main post index.", "lowtone_libre")),
+			"front_page" => array("front_page_sidebars", "Front Page Sidebars", __("Front Page", "lowtone_libre"), __("This sidebar is only visible on the front page.", "lowtone_libre")),
+			"attachment" => array("attachment_sidebars", "Attachment Sidebars", __("Attachment", "lowtone_libre"), __("This sidebar is displayed with attachments.", "lowtone_libre")),
+			"single" => array("single_sidebars", "Single Sidebars", __("Single", "lowtone_libre"), __("This sidebar is visible when a single post is displayed (not with pages).", "lowtone_libre")),
+			"page" => array("page_sidebars", "Page Sidebars", __("Page", "lowtone_libre"), __("This sidebar is visible when a page is displayed.", "lowtone_libre")),
+			"category" => array("category_sidebars", "Category Sidebars", __("Category", "lowtone_libre"), __("This sidebar is displayed with categories.", "lowtone_libre")),
+			"tag" => array("tag_sidebars", "Tag Sidebars", __("Tag", "lowtone_libre"), __("This sidebar is displayed with tags.", "lowtone_libre")),
+			"author" => array("author_sidebars", "Author Sidebars", __("Author", "lowtone_libre"), __("This sidebar is displayed when an author is displayed.", "lowtone_libre")),
+			"date" => array("date_sidebars", "Date Sidebars", __("Date", "lowtone_libre"), __("This sidebar is displayed a specific date is displayed.", "lowtone_libre")),
+			"archive" => array("archive_sidebars", "Archive Sidebars", __("Archive", "lowtone_libre"), __("This sidebar is displayed when the archive is displayed.", "lowtone_libre")),
+			"sidebar" => array("sidebars", "Sidebars", __("Sidebar", "lowtone_libre"), __("Default sidebar available on every page.", "lowtone_libre")),
 		);
 	}
 
