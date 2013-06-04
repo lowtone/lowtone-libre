@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lowtone Libre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-16 16:20+0100\n"
-"PO-Revision-Date: 2012-10-16 16:20+0100\n"
+"POT-Creation-Date: 2013-06-03 15:47+0100\n"
+"PO-Revision-Date: 2013-06-03 15:48+0100\n"
 "Last-Translator: Paul van der Meijs <info@lowtone.nl>\n"
 "Language-Team: Lowtone <info@lowtone.nl>\n"
 "Language: nl_NL\n"
@@ -12,225 +12,227 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
-"X-Poedit-SearchPath-1: ../../../libs\n"
 
-#: ../functions.php:132 ../functions.php:141
+#: ../functions.php:206
+msgid "Page Attributes"
+msgstr ""
+
+#: ../functions.php:206
+msgid "Attributes"
+msgstr ""
+
+#: ../functions.php:215
+msgid "(no parent)"
+msgstr ""
+
+#: ../functions.php:225 ../functions.php:226
+msgid "Parent"
+msgstr ""
+
+#: ../functions.php:233
+msgid "Template"
+msgstr ""
+
+#: ../functions.php:234
+msgid "Page Template"
+msgstr ""
+
+#: ../functions.php:236
+msgid "Default Template"
+msgstr ""
+
+#: ../functions.php:247 ../functions.php:248
+msgid "Order"
+msgstr ""
+
+#: ../functions.php:251
+msgid "Need help? Use the Help tab in the upper right of your screen."
+msgstr ""
+
+#: ../functions.php:262 ../functions.php:271
 msgid "Sidebars"
 msgstr "Zijbalken"
 
-#: ../functions.php:147
+#: ../functions.php:278
 #, php-format
 msgid "Click <a href=\"%s\">here</a> to configure the widgets."
 msgstr "Klik <a href=\"%s\">hier</a> om widgets te configureren."
 
-#: ../functions.php:341
+#: ../functions.php:724
 msgid "404"
 msgstr "404"
 
-#: ../functions.php:342
+#: ../functions.php:725
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../functions.php:343
+#: ../functions.php:726
 msgid "Tax"
 msgstr "Tax"
 
-#: ../functions.php:344
+#: ../functions.php:727
 msgid "Home"
 msgstr "Home"
 
-#: ../functions.php:345
+#: ../functions.php:728
+msgid "Front Page"
+msgstr "Voorpagina"
+
+#: ../functions.php:729
 msgid "Attachment"
 msgstr "Bijlage"
 
-#: ../functions.php:346
+#: ../functions.php:730
 msgid "Single"
 msgstr "Enkel"
 
-#: ../functions.php:347
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:143
+#: ../functions.php:731
 msgid "Page"
 msgstr "Pagina"
 
-#: ../functions.php:348
+#: ../functions.php:732
 msgid "Category"
 msgstr "Categorie"
 
-#: ../functions.php:349
+#: ../functions.php:733
 msgid "Tag"
 msgstr "Tag"
 
-#: ../functions.php:350
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:21
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:64
+#: ../functions.php:734
 msgid "Author"
 msgstr "Auteur"
 
-#: ../functions.php:351
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:234
+#: ../functions.php:735
 msgid "Date"
 msgstr "Datum"
 
-#: ../functions.php:352
+#: ../functions.php:736
 msgid "Archive"
 msgstr "Archief"
 
-#: ../functions.php:353
+#: ../functions.php:737
 msgid "Sidebar"
 msgstr "Zijbalk"
 
 #: ../shortcodes/readmore.php:26
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:236
 msgid "Read more"
 msgstr "Lees meer"
 
-#: ../../../libs/lowtone/util.class.php:148
-msgid "Back"
-msgstr "Terug"
+#~ msgid "Back"
+#~ msgstr "Terug"
 
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:68
-msgid "First"
-msgstr "Eerste"
+#, fuzzy
+#~ msgid "Previous month"
+#~ msgstr "Vorige bericht"
 
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:86
-msgid "Previous"
-msgstr "Vorige"
+#, fuzzy
+#~ msgid "Next month"
+#~ msgstr "Volgende bericht"
 
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:115
-msgid "Next"
-msgstr "Volgende"
+#~ msgid "First"
+#~ msgstr "Eerste"
 
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:133
-msgid "Last"
-msgstr "Laatste"
+#~ msgid "Previous"
+#~ msgstr "Vorige"
 
-#: ../../../libs/lowtone/ui/pagination/out/paginationdocument.class.php:144
-msgid "of"
-msgstr "van"
+#~ msgid "Next"
+#~ msgstr "Volgende"
 
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:26
-msgid "Name"
-msgstr "Naam"
+#~ msgid "Last"
+#~ msgstr "Laatste"
 
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:32
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:65
-msgid "Email"
-msgstr "Email"
+#~ msgid "of"
+#~ msgstr "van"
 
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:38
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:43
-msgid "Website"
-msgstr "Website"
+#~ msgid "Posts"
+#~ msgstr "Berichten"
 
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:49
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:54
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:69
-msgid "Message"
-msgstr "Bericht"
+#~ msgid "No posts."
+#~ msgstr "Geen berichten"
 
-#: ../../../libs/lowtone/wp/posts/comments/forms/commentform.class.php:62
-#: ../../../libs/lowtone/wp/posts/comments/out/commentformdocument.class.php:52
-msgid "Post comment"
-msgstr "Reactie plaatsen"
+#~ msgid "Name"
+#~ msgstr "Naam"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:66
-msgid "URL"
-msgstr "URL"
+#~ msgid "Email"
+#~ msgstr "Email"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:67
-msgid "IP"
-msgstr "IP"
+#~ msgid "Website"
+#~ msgstr "Website"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:68
-msgid "Date / Time"
-msgstr "Datum en tijd"
+#~ msgid "Message"
+#~ msgstr "Bericht"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:70
-msgid "Karma"
-msgstr "Karma"
+#~ msgid "Post comment"
+#~ msgstr "Reactie plaatsen"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:71
-msgid "Approved"
-msgstr "Goedgekeurd"
+#~ msgid "URL"
+#~ msgstr "URL"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:72
-msgid "User agent"
-msgstr "User agent"
+#~ msgid "IP"
+#~ msgstr "IP"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentdocument.class.php:73
-msgid "Type"
-msgstr "Type"
+#~ msgid "Date / Time"
+#~ msgstr "Datum en tijd"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentsdocument.class.php:56
-msgid "Replies to this article"
-msgstr "Reacties op dit bericht"
+#~ msgid "Karma"
+#~ msgstr "Karma"
 
-#: ../../../libs/lowtone/wp/posts/comments/out/commentsdocument.class.php:57
-msgid "No comments."
-msgstr "Geen reacties"
+#~ msgid "Approved"
+#~ msgstr "Goedgekeurd"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:126
-msgid "Extra fields"
-msgstr "Extra velden"
+#~ msgid "User agent"
+#~ msgstr "User agent"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:127
-msgid "No extra fields."
-msgstr "Geen extra velden."
+#~ msgid "Type"
+#~ msgstr "Type"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:166
-msgid "Categories"
-msgstr "Categorieën"
+#~ msgid "Replies to this article"
+#~ msgstr "Reacties op dit bericht"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:167
-msgid "No categories."
-msgstr "Geen reacties."
+#~ msgid "No comments."
+#~ msgstr "Geen reacties"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:170
-msgid "Tags"
-msgstr "Tags"
+#~ msgid "Extra fields"
+#~ msgstr "Extra velden"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:171
-msgid "No tags."
-msgstr "Geen berichten."
+#~ msgid "No extra fields."
+#~ msgstr "Geen extra velden."
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:173
-msgid "Terms"
-msgstr "Terms"
+#~ msgid "Previous post"
+#~ msgstr "Vorige bericht"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:174
-msgid "No terms."
-msgstr "Geen berichten."
+#~ msgid "Next post"
+#~ msgstr "Volgende bericht"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:232
-msgid "Views"
-msgstr "Weergaven"
+#~ msgid "Last modified"
+#~ msgstr "Gewijzigd"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:233
-msgid "Unique views"
-msgstr "Unieke weergaven"
+#~ msgid "Categories"
+#~ msgstr "Categorieën"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:235
-msgid "Last modified"
-msgstr "Gewijzigd"
+#~ msgid "No categories."
+#~ msgstr "Geen reacties."
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:243
-msgid "Next post"
-msgstr "Volgende bericht"
+#~ msgid "Tags"
+#~ msgstr "Tags"
 
-#: ../../../libs/lowtone/wp/posts/out/postdocument.class.php:244
-msgid "Previous post"
-msgstr "Vorige bericht"
+#~ msgid "No tags."
+#~ msgstr "Geen berichten."
 
-#: ../../../libs/lowtone/wp/posts/out/postlistdocument.class.php:50
-msgid "Posts"
-msgstr "Berichten"
+#~ msgid "Terms"
+#~ msgstr "Terms"
 
-#: ../../../libs/lowtone/wp/posts/out/postlistdocument.class.php:51
-msgid "No posts."
-msgstr "Geen berichten"
+#~ msgid "No terms."
+#~ msgstr "Geen berichten."
+
+#~ msgid "Views"
+#~ msgstr "Weergaven"
+
+#~ msgid "Unique views"
+#~ msgstr "Unieke weergaven"
 
 #~ msgid " %d"
 #~ msgstr " %d"
