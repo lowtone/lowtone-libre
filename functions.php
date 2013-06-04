@@ -416,6 +416,7 @@ namespace lowtone\libre {
 				case "author_sidebars":
 				case "date_sidebars":
 				case "archive_sidebars":
+				case "front_page_sidebars":
 					$value = is_numeric($value) ? (int) $value : 0;
 					break;
 					
@@ -486,7 +487,7 @@ namespace lowtone\libre {
 		$templates = templates();
 
 		$context = Util::getContext();
-
+		
 		$context[] = "index";
 
 		/**
@@ -724,6 +725,7 @@ namespace lowtone\libre {
 			"search" => array("search_sidebars", "Search Sidebars", __("Search", "lowtone_libre")),
 			"tax" => array("tax_sidebars", "Tax Sidebars", __("Tax", "lowtone_libre")),
 			"home" => array("home_sidebars", "Home Sidebars", __("Home", "lowtone_libre")),
+			"front_page" => array("front_page_sidebars", "Front Page Sidebars", __("Front Page", "lowtone_libre")),
 			"attachment" => array("attachment_sidebars", "Attachment Sidebars", __("Attachment", "lowtone_libre")),
 			"single" => array("single_sidebars", "Single Sidebars", __("Single", "lowtone_libre")),
 			"page" => array("page_sidebars", "Page Sidebars", __("Page", "lowtone_libre")),
@@ -732,7 +734,7 @@ namespace lowtone\libre {
 			"author" => array("author_sidebars", "Author Sidebars", __("Author", "lowtone_libre")),
 			"date" => array("date_sidebars", "Date Sidebars", __("Date", "lowtone_libre")),
 			"archive" => array("archive_sidebars", "Archive Sidebars", __("Archive", "lowtone_libre")),
-			"sidebar" => array("sidebars", "Sidebars", __("Sidebar", "lowtone_libre"))
+			"sidebar" => array("sidebars", "Sidebars", __("Sidebar", "lowtone_libre")),
 		);
 	}
 
