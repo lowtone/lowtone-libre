@@ -9,11 +9,16 @@
 	<!-- Single menu -->
 	
 	<xsl:template match="menu">
+		<xsl:param name="width" select="false()" />
+
 		<xsl:variable name="hasItems" select="boolean(count(items/item))" />
-		
-		<nav id="{name}">
+
+		<nav id="{@id}">
 			<xsl:attribute name="class">
 				<xsl:text>menu</xsl:text>
+				<xsl:if test="boolean($width)">
+					<xsl:text> </xsl:text><xsl:value-of select="$width" /><xsl:text> column</xsl:text>
+				</xsl:if>
 				<xsl:if test="not($hasItems)">
 					<xsl:text> empty</xsl:text>
 				</xsl:if>
