@@ -295,6 +295,9 @@ namespace lowtone\libre {
 				add_action("save_post", function($postId, $post) {
 					$postType = $post->{Post::PROPERTY_POST_TYPE};
 
+					if ("revision" == $postType && ($parent = get_post($post->{Post::PROPERTY_POST_PARENT}))) 
+						$postType = $parent->{Post::PROPERTY_POST_TYPE};
+
 					if ("page" == $postType)
 						update_post_meta($postId, "_lowtone_libre_page_template", @$_POST["page_template"]);
 
@@ -737,8 +740,7 @@ namespace lowtone\libre {
 		if (!$template)
 			return false;
 
-		if (!is_array($templates))
-			$templates = templates();
+		$templates = templates();
 		
 		$file = reset(array_filter($templates, function($file) use ($template) {
 			return basename($file) == $template;
