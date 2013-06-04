@@ -95,17 +95,17 @@ namespace lowtone\libre {
 					));
 
 				$postIds = array_map(function($meta) {
-					return $meta->post_id();
+					return $meta->{Meta::PROPERTY_POST_ID};
 				}, (array) $sidebarMeta);
 
 				$posts = Post::findById($postIds);
 
 				$sidebarMeta->each(function($meta) use ($posts) {
-					if (($number = $meta->meta_value()) < 1)
+					if (($number = $meta->{Meta::PROPERTY_META_VALUE}) < 1)
 						return;
 
 					$post = reset(array_filter((array) $posts, function($post) use ($meta) {
-						return $post->ID() == $meta->post_id();
+						return $post->{Post::PROPERTY_ID} == $meta->{Meta::PROPERTY_POST_ID};
 					}));
 
 					if (!$post)
