@@ -26,7 +26,7 @@
 &lt;!--[if IE 8]&gt;         &lt;html class="no-js lt-ie9"&gt; &lt;![endif]--&gt;
 &lt;!--[if gt IE 8]&gt;&lt;!--&gt;
 </xsl:text>
-		<html class="no-js" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+		<html class="no-js">
 			<xsl:text disable-output-escaping="yes">
 &lt;!--&lt;![endif]--&gt;
 </xsl:text>

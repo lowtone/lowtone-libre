@@ -294,6 +294,8 @@ namespace lowtone\libre {
 					}
 				}, 10, 2);
 
+				// Save post
+
 				add_action("save_post", function($postId, $post) {
 					$postType = $post->{Post::PROPERTY_POST_TYPE};
 
@@ -318,6 +320,18 @@ namespace lowtone\libre {
 							break;
 					}
 				}, 10, 2);
+
+				// Excerpt more
+				
+				add_filter("excerpt_more", function() {
+					return '<span class="more">&hellip;</span>';
+				});
+
+				// Add class to excerpt
+				
+				add_filter("the_excerpt", function($excerpt) {
+					return preg_replace("/<p>/i", '<p class="excerpt">', $excerpt);
+				});
 
 				// Admin
 				
@@ -483,8 +497,8 @@ namespace lowtone\libre {
 	function extractFileData($file, $header = NULL) {
 		$fileData = fileData($file);
 		
-		if (!is_null($header))
-			return @$fileData[$header];
+		if (isset($header))
+			return isset($fileData[$header]) ? $fileData[$header] : NULL;
 			
 		return $fileData;
 	}
@@ -813,6 +827,12 @@ namespace lowtone\libre {
 				get_stylesheet_directory() . "/images", 
 				get_template_directory() . "/images"
 			);
+	}
+
+	function filterName($name) {
+		$name = "libre_{$name}";
+
+		return $name;
 	}
 
 	// Plugin settings

@@ -69,7 +69,7 @@ namespace lowtone\libre {
 			)
 		);
 		
-		$options = apply_filters("lowtone_libre_document_options", $options);
+		$options = apply_filters("libre_document_options", $options);
 		
 		$libreDocument->build($options);
 		
@@ -127,7 +127,7 @@ namespace lowtone\libre {
 		/*if (!($libreDocument instanceof LibreDocument))
 			return trigger_error("Failed loading the Libre document");*/
 			
-		echo $libreDocument->saveHTML();
+		echo apply_filters("libre_ouput", $libreDocument->saveHTML());
 
 		$log->write("Libre success!");
 

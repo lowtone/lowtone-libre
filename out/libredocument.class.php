@@ -33,7 +33,7 @@ class LibreDocument extends Document {
 		$this->updateBuildOptions(array(
 				self::BUILD_QUERY => true,
 				self::BUILD_MENUS => true,
-				self::BUILD_SIDEBARS => true
+				self::BUILD_SIDEBARS => true,
 			));
 	}
 	
@@ -166,7 +166,7 @@ class LibreDocument extends Document {
 
 			// Build Libre document action
 
-			do_action("build_libre_document", $libreDocument);
+			do_action("build_" . \lowtone\libre\filterName("document"), $libreDocument);
 			
 			// WordPress footer
 			
