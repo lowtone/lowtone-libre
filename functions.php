@@ -12,6 +12,7 @@ namespace lowtone\libre {
 		lowtone\io\logging\Log,
 		lowtone\content\packages\themes\Theme,
 		lowtone\ui\forms\Input,
+		lowtone\wp\WordPress,
 		lowtone\wp\posts\Post,
 		lowtone\wp\posts\meta\Meta,
 		lowtone\wp\queries\Query;
@@ -571,7 +572,7 @@ namespace lowtone\libre {
 
 		$templates = templates();
 
-		$context = Util::getContext();
+		$context = WordPress::context();
 		
 		$context[] = "index";
 
@@ -784,7 +785,7 @@ namespace lowtone\libre {
 	 * @return string Returns a URL on success.
 	 */
 	function styles() {
-		$styles = Util::getContext();
+		$styles = WordPress::context();
 		
 		foreach (array(get_stylesheet_directory(), get_template_directory()) as $base) {
 			foreach ($styles as $style) {

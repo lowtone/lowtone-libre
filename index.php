@@ -11,7 +11,8 @@ namespace lowtone\libre {
 	use lowtone\Util,
 		lowtone\Globals,
 		lowtone\dom\Document,
-		lowtone\wp\posts\out\PostListDocument,
+		lowtone\wp\WordPress,
+		lowtone\wp\posts\collections\out\CollectionDocument,
 		lowtone\wp\posts\out\PostDocument,
 		lowtone\wp\queries\out\QueryDocument,
 		lowtone\wp\sidebars\out\SidebarsDocument,
@@ -31,7 +32,7 @@ namespace lowtone\libre {
 
 		$libreDocument = new LibreDocument();
 		
-		$sidebars = Util::getContext();
+		$sidebars = WordPress::context();
 		
 		$sidebars[] = "sidebar";
 
@@ -42,10 +43,10 @@ namespace lowtone\libre {
 			LibreDocument::BUILD_INFO => true,
 			LibreDocument::QUERY_DOCUMENT_OPTIONS => array(
 				QueryDocument::BUILD_POSTS => true,
-				QueryDocument::POST_LIST_DOCUMENT_OPTIONS => array(
-					PostListDocument::BUILD_LOCALES => true,
-					PostListDocument::POST_LIST_ELEMENT_NAME => "posts",
-					PostListDocument::POST_DOCUMENT_OPTIONS => array(
+				QueryDocument::POST_COLLECTION_DOCUMENT_OPTIONS => array(
+					CollectionDocument::BUILD_LOCALES => true,
+					CollectionDocument::COLLECTION_ELEMENT_NAME => "posts",
+					CollectionDocument::OBJECT_DOCUMENT_OPTIONS => array(
 						PostDocument::BUILD_TERMS => true,
 						PostDocument::BUILD_AUTHOR => true,
 						PostDocument::BUILD_CUSTOM_FIELDS => is_single(),
