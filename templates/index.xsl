@@ -128,5 +128,14 @@
 		</footer>
 		<xsl:value-of select="footer" disable-output-escaping="yes" />
 	</xsl:template>
+
+
+	<!-- Garbage -->
+
+	<xsl:template select="garbage">
+		<div class="garbage">
+			<xsl:value-of select="." disable-output-escaping="yes" />
+		</div>
+	</xsl:template>
 	
 </xsl:stylesheet>
