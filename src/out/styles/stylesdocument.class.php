@@ -1,13 +1,14 @@
 <?php
-namespace lowtone\libre\out;
+namespace lowtone\libre\src\out\styles;
 use WP_Styles,
 	lowtone\dom\Document;
 
 /**
  * @author Paul van der Meijs <code@lowtone.nl>
- * @copyright Copyright (c) 2011-2012, Paul van der Meijs
+ * @copyright Copyright (c) 2011-2013, Paul van der Meijs
  * @license http://wordpress.lowtone.nl/license/
  * @version 1.0
+ * @package wordpress\themes\lowtone\libre\src\out\styles
  */
 class StylesDocument extends Document {
 	

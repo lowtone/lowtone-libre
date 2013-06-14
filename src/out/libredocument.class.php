@@ -1,5 +1,5 @@
 <?php
-namespace lowtone\libre\out;
+namespace lowtone\libre\src\out;
 use lowtone\Util,
 	lowtone\dom\Document,
 	lowtone\wp\menus\out\MenusDocument,
@@ -9,9 +9,10 @@ use lowtone\Util,
 
 /**
  * @author Paul van der Meijs <code@lowtone.nl>
- * @copyright Copyright (c) 2011-2012, Paul van der Meijs
+ * @copyright Copyright (c) 2011-2013, Paul van der Meijs
  * @license http://wordpress.lowtone.nl/license/
  * @version 1.0
+ * @package wordpress\themes\lowtone\libre\src\out
  */
 class LibreDocument extends Document {
 	
