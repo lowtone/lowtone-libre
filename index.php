@@ -19,18 +19,20 @@ namespace lowtone\libre {
 		lowtone\wp\sidebars\out\SidebarDocument,
 		lowtone\wp\sidebars\widgets\out\WidgetsDocument,
 		lowtone\wp\sidebars\widgets\out\WidgetDocument,
-		lowtone\libre\out\LibreDocument;
+		lowtone\libre\src\out\LibreDocument;
 
-	if (!class_exists("lowtone\\libre\\out\\LibreDocument"))
+	if (!class_exists("lowtone\\libre\\src\\Libre"))
 		return trigger_error("Libre theme not initiated", E_USER_WARNING) && false;
 	
 	Util::call(function() {
+
+		$libre = src\Libre::init();
 
 		$log = Globals::get("log");
 		
 		// Create document
 
-		$libreDocument = new LibreDocument();
+		$libreDocument = $libre->__toDocument();
 		
 		$sidebars = WordPress::context();
 		
@@ -77,7 +79,7 @@ namespace lowtone\libre {
 		if (is_super_admin() && isset($_GET["debug"])) 
 			$libreDocument->out(array(Document::OPTION_CONTENT_TYPE => Document::CONTENT_TYPE_XML));
 			
-		if ($template = template()) {
+		if ($template = $libre->__template()) {
 			if (@constant("LOWTONE_LIBRE_APPEND_TEMPLATES") && ($appendTemplates = apply_filters("libre_append_templates", array(), $template))) {
 				$cachedFile = dirname($template) . "/.cache/" . basename($template, ".xsl") . "-" . sha1(filemtime($template) . "|" . serialize($appendTemplates)) . ".xsl";
 
@@ -132,7 +134,7 @@ namespace lowtone\libre {
 
 		$log->write("Libre success!");
 
-		exit;
+		// exit;
 		
 	});
 	
