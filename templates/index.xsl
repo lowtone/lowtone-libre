@@ -30,18 +30,31 @@
 			<xsl:text disable-output-escaping="yes">
 &lt;!--&lt;![endif]--&gt;
 </xsl:text>
-			<head>
-				<xsl:value-of select="head" disable-output-escaping="yes" />
-			</head>
-			<body>
-				<xsl:attribute name="class">
-					<xsl:value-of select="info/body_class" />
-				</xsl:attribute>
-				<xsl:call-template name="header" />
-				<xsl:call-template name="body" />
-				<xsl:call-template name="footer" />
-			</body>
+			<xsl:call-template name="html_head" />
+			<xsl:call-template name="html_body" />
 		</html>
+	</xsl:template>
+
+	<!-- HTML head -->
+
+	<xsl:template name="html_head">
+		<head>
+			<xsl:value-of select="head" disable-output-escaping="yes" />
+		</head>
+	</xsl:template>
+
+
+	<!-- HTML body -->
+
+	<xsl:template name="html_body">
+		<body>
+			<xsl:attribute name="class">
+				<xsl:value-of select="info/body_class" />
+			</xsl:attribute>
+			<xsl:call-template name="header" />
+			<xsl:call-template name="body" />
+			<xsl:call-template name="footer" />
+		</body>
 	</xsl:template>
 
 
