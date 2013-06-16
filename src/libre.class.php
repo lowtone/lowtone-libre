@@ -473,19 +473,14 @@ class Libre extends HookHandler implements Documentable, Singleton {
 			return self::$__fileData[$file];
 
 		$base = \lowtone\wp\themes\Theme::getData($file);
-		
-		$sidebarConfig = self::__sidebarAttributes();
-		
-		$sidebarKeys = array_map(function($config) {
-				return $config[0];
-			}, $sidebarConfig);
-		
-		$sidebarHeaders = array_map(function($config) {
-				return $config[1];
-			}, $sidebarConfig);
+
+		$sidebarHeaders = array();
+
+		foreach (self::__sidebarAttributes() as $sidebar) 
+			$sidebarHeaders[$sidebar[0]] = $sidebar[1];
 		
 		$headers = array_merge(
-			array_combine($sidebarKeys, $sidebarHeaders),
+			$sidebarHeaders,
 			array(
 				"theme_support" => "Theme support",
 				"menus" => "Menus",
