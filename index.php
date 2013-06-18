@@ -79,7 +79,7 @@ namespace lowtone\libre {
 		if (is_super_admin() && isset($_GET["debug"])) 
 			$libreDocument->out(array(Document::OPTION_CONTENT_TYPE => Document::CONTENT_TYPE_XML));
 			
-		if ($template = $libre->__template()) {
+		if ($template = apply_filters("libre_template", $libre->__template())) {
 			if (@constant("LOWTONE_LIBRE_APPEND_TEMPLATES") && ($appendTemplates = apply_filters("libre_append_templates", array(), $template))) {
 				$cachedFile = dirname($template) . "/.cache/" . basename($template, ".xsl") . "-" . sha1(filemtime($template) . "|" . serialize($appendTemplates)) . ".xsl";
 
