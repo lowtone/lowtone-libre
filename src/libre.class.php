@@ -193,6 +193,8 @@ class Libre extends HookHandler implements Documentable, Singleton {
 			
 		}
 
+		$this->__add();
+
 	}
 
 	// Filters
@@ -912,8 +914,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 	}
 
 	public static function init() {
-		return static::__instance()
-			->__add();
+		return static::__instance();
 	}
 	
 }
