@@ -48,6 +48,8 @@
 	
 	<xsl:template match="post">
 		<xsl:param name="single" />
+
+		<xsl:variable name="postFormat" select="taxonomies/taxonomy[query_var='post_format']/terms/term[1]/slug" />
 		
 		<article id="{name}" data-id="{@id}" itemscope="itemscope" itemtype="http://schema.org/Article">
 			<xsl:call-template name="post_class">
