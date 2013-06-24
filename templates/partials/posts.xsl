@@ -25,11 +25,11 @@
 			
 			<xsl:choose>
 				<xsl:when test="$hasPosts">
-					<xsl:variable name="single" select="boolean(//query/@single)" />
+					<xsl:variable name="singular" select="boolean(//query/@singular)" />
 
 					<xsl:choose>
-						<xsl:when test="$single">
-							<xsl:apply-templates select="post" mode="single" />
+						<xsl:when test="$singular">
+							<xsl:apply-templates select="post" mode="singular" />
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:apply-templates select="post" />
@@ -47,17 +47,17 @@
 	<!-- Post -->
 	
 	<xsl:template match="post">
-		<xsl:param name="single" />
+		<xsl:param name="singular" />
 
 		<xsl:variable name="postFormat" select="taxonomies/taxonomy[query_var='post_format']/terms/term[1]/slug" />
 		
 		<article id="{name}" data-id="{@id}" itemscope="itemscope" itemtype="http://schema.org/Article">
 			<xsl:call-template name="post_class">
-				<xsl:with-param name="single"><xsl:value-of select="$single" /></xsl:with-param>
+				<xsl:with-param name="singular"><xsl:value-of select="$singular" /></xsl:with-param>
 			</xsl:call-template>
 			<xsl:apply-templates select="thumbnail">
 				<xsl:with-param name="link">
-					<xsl:if test="not(boolean($single))">
+					<xsl:if test="not(boolean($singular))">
 						<xsl:value-of select="permalink" />
 					</xsl:if>
 			</xsl:with-param>
@@ -65,7 +65,7 @@
 			<header>
 				<h1>
 					<xsl:choose>
-						<xsl:when test="$single">
+						<xsl:when test="$singular">
 							<span itemprop="name"><xsl:value-of select="title" disable-output-escaping="yes" /></span>
 						</xsl:when>
 						<xsl:otherwise>
@@ -91,9 +91,9 @@
 	
 	<!-- Single post -->
 
-	<xsl:template match="post" mode="single">
+	<xsl:template match="post" mode="singular">
 		<xsl:apply-templates select=".">
-			<xsl:with-param name="single" select="true()" />
+			<xsl:with-param name="singular" select="true()" />
 		</xsl:apply-templates>
 	</xsl:template>
 
@@ -101,15 +101,15 @@
 	<!-- Post class -->
 
 	<xsl:template name="post_class">
-		<xsl:param name="single" />
+		<xsl:param name="singular" />
 
 		<xsl:attribute name="class">
 			<xsl:text>post type-</xsl:text><xsl:value-of select="type" />
 			<xsl:for-each select=".//term">
 				<xsl:text> </xsl:text><xsl:value-of select="taxonomy" />-<xsl:value-of select="slug" />
 			</xsl:for-each>
-			<xsl:if test="$single">
-				<xsl:text> single</xsl:text>
+			<xsl:if test="$singular">
+				<xsl:text> singular</xsl:text>
 			</xsl:if>
 		</xsl:attribute>
 	</xsl:template>
