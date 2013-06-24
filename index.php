@@ -51,11 +51,11 @@ namespace lowtone\libre {
 					CollectionDocument::OBJECT_DOCUMENT_OPTIONS => array(
 						PostDocument::BUILD_TERMS => true,
 						PostDocument::BUILD_AUTHOR => true,
-						PostDocument::BUILD_CUSTOM_FIELDS => is_single(),
+						PostDocument::BUILD_CUSTOM_FIELDS => is_singular(),
 						PostDocument::BUILD_THUMBNAIL => true,
-						PostDocument::BUILD_COMMENTS => is_single(),
-						PostDocument::BUILD_COMMENT_FORM => is_single(),
-						PostDocument::BUILD_ADJACENT => is_single()
+						PostDocument::BUILD_COMMENTS => is_singular(),
+						PostDocument::BUILD_COMMENT_FORM => is_singular(),
+						PostDocument::BUILD_ADJACENT => is_singular()
 					),
 				),
 				QueryDocument::BUILD_PAGINATION => true
