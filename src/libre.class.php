@@ -64,7 +64,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 
 		// Set config defaults
 		
-		$defaults = apply_filters("lowtone_libre_config_defaults", array(
+		$defaults = apply_filters(\lowtone\libre\filterName("config_defaults"), array(
 				"LOWTONE_LIBRE_APPEND_TEMPLATES" => true
 			));
 
@@ -251,7 +251,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 
 		$url = Util::pathToUrl($logo);
 
-		if (!($url = apply_filters("login_logo", $url)))
+		if (!($url = apply_filters(\lowtone\libre\filterName("login_logo"), $url)))
 			return;
 
 		add_filter("login_headerurl", function() {
@@ -915,6 +915,10 @@ class Libre extends HookHandler implements Documentable, Singleton {
 
 	public static function init() {
 		return static::__instance();
+	}
+
+	public static function appendTemplates() {
+		return defined("LOWTONE_LIBRE_APPEND_TEMPLATES") && LOWTONE_LIBRE_APPEND_TEMPLATES;
 	}
 	
 }
