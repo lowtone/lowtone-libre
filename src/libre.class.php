@@ -106,10 +106,10 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		// Register sidebars
 
 		foreach ($this->__sidebarAttributes() as $id => $attributes) {
-			if (($number = $this->__themeData($attributes[0])) < 1)
+			if (($number = (int) $this->__themeData($attributes[0])) < 1)
 				continue;
 			
-			register_sidebars($number, array(
+			$result = register_sidebars($number, array(
 				"name" => $attributes[2] . ($number > 1 ? " %d" : ""),
 				"id" => $id,
 				"description" => $attributes[3],
@@ -118,6 +118,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 				"before_title" => "<header><h1>",
 				"after_title" => "</h1></header>"
 			));
+
 		}
 
 		$sidebarMeta = Meta::find(array(
@@ -447,7 +448,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 	 * @return array Returns the config for the sidebars
 	 */
 	private function __sidebarAttributes() {
-		return array(
+		return apply_filters(\lowtone\libre\filterName("sidebar_meta"), array(
 			"404" => array("404_sidebars", "404 Sidebars", __("404", "lowtone_libre"), __("This sidebar is displayed when a page is not found.", "lowtone_libre")),
 			"search" => array("search_sidebars", "Search Sidebars", __("Search", "lowtone_libre"), __("This sidebar is displayed with search results.", "lowtone_libre")),
 			"tax" => array("tax_sidebars", "Tax Sidebars", __("Tax", "lowtone_libre"), __("This sidebar is displayed with taxonomies.", "lowtone_libre")),
@@ -462,7 +463,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 			"date" => array("date_sidebars", "Date Sidebars", __("Date", "lowtone_libre"), __("This sidebar is displayed a specific date is displayed.", "lowtone_libre")),
 			"archive" => array("archive_sidebars", "Archive Sidebars", __("Archive", "lowtone_libre"), __("This sidebar is displayed when the archive is displayed.", "lowtone_libre")),
 			"sidebar" => array("sidebars", "Sidebars", __("Sidebar", "lowtone_libre"), __("Default sidebar available on every page.", "lowtone_libre")),
-		);
+		));
 	}
 	
 	/**
@@ -671,7 +672,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		foreach (WordPress::context() as $c) {
 			switch ($c) {
 				case Query::CONTEXT_TAX:
-					$context = "taxonomy";
+					$context[] = "taxonomy";
 
 					if ($term = get_queried_object()) {
 						$context[] = "taxonomy-{$term->taxonomy}";
@@ -907,7 +908,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 	public static function __instance() {
 		$class = get_called_class();
 
-		if (!(isset($__instances[$class]) && self::$__instances[$class] instanceof $class)) 
+		if (!(isset(self::$__instances[$class]) && self::$__instances[$class] instanceof $class)) 
 			self::$__instances[$class] = new $class();
 
 		return self::$__instances[$class];

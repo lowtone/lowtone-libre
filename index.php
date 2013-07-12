@@ -40,6 +40,8 @@ namespace lowtone\libre {
 
 		if (is_singular())
 			$sidebars[] = "post:" .  $GLOBALS["post"]->post_name;
+
+		$sidebars = apply_filters(filterName("sidebars"), $sidebars);
 		
 		$options = array(
 			LibreDocument::BUILD_INFO => true,
