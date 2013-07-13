@@ -1,6 +1,7 @@
 <?php
 namespace lowtone\libre\src;
-use lowtone\libre\src\out\LibreDocument,
+use lowtone\dom\Document,
+	lowtone\libre\src\out\LibreDocument,
 	lowtone\types\singletons\interfaces\Singleton,
 	lowtone\util\documentable\interfaces\Documentable,
 	lowtone\wp\hooks\Handler as HookHandler,
@@ -438,6 +439,26 @@ class Libre extends HookHandler implements Documentable, Singleton {
 	 */
 	protected function the_excerpt($excerpt) {
 		return preg_replace("/<p>/i", '<p class="excerpt">', $excerpt);
+	}
+
+	protected function get_search_form($form) {
+		$templates = $this->__templates();
+
+		if (!isset($templates["searchform"]))
+			return $form;
+
+		$searchForm = new Document();
+
+		return $searchForm
+			->appendCreateElement("search_form", array(
+				"action" => home_url("/"),
+				"search_query" => get_search_query(),
+				"label_text" => __("Search for", "lowtone_libre"),
+				"submit_text" => __("Search", "lowtone_libre")
+			))
+			->setTemplate($templates["searchform"])
+			->transform()
+			->saveHtml();
 	}
 
 	// Support methods
