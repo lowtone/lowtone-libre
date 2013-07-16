@@ -454,6 +454,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 				"action" => home_url("/"),
 				"search_query" => get_search_query(),
 				"label_text" => __("Search for", "lowtone_libre"),
+				"placeholder_text" => __("Search", "lowtone_libre"),
 				"submit_text" => __("Search", "lowtone_libre")
 			))
 			->setTemplate($templates["searchform"])
