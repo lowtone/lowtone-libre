@@ -18,11 +18,14 @@
 	<!-- Comments -->
 	
 	<xsl:template match="comments">
+		<xsl:param name="status" />
+
 		<xsl:variable name="hasComments" select="boolean(count(comment))" />
 		
 		<div>
 			<xsl:attribute name="class">
 				<xsl:text>comments</xsl:text>
+				<xsl:text> </xsl:text><xsl:value-of select="../comment_status" />
 				<xsl:if test="not($hasComments)">
 					<xsl:text> empty</xsl:text>
 				</xsl:if>
