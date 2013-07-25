@@ -132,7 +132,7 @@ namespace lowtone\libre {
 		/*if (!($libreDocument instanceof LibreDocument))
 			return trigger_error("Failed loading the Libre document");*/
 			
-		echo apply_filters(filterName("ouput"), $libreDocument->saveHTML());
+		echo apply_filters(filterName("output"), $libreDocument->saveHTML());
 
 		$log->write("Libre success!");
 
