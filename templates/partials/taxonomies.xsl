@@ -27,7 +27,7 @@
 
 
 	<xsl:template match="term">
-		<dd><a href="{permalink}"><xsl:value-of select="name" /></a></dd>
+		<dd><a href="{permalink}"><xsl:value-of select="name" disable-output-escaping="yes" /></a></dd>
 	</xsl:template>
 	
 </xsl:stylesheet>
