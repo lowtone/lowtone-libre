@@ -715,7 +715,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 						break;
 
 					if (!($type = explode("/", $mimeType)))
-						break
+						break;
 
 					$context[] = $type[0];
 					$context[] = $type[1];
