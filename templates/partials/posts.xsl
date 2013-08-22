@@ -199,7 +199,7 @@
 		<div class="content">
 			<xsl:choose>
 				<xsl:when test="$singular">
-					<xsl:value-of select="excerpt" disable-output-escaping="yes" />
+					<xsl:value-of select="content" disable-output-escaping="yes" />
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="content" disable-output-escaping="yes" />
