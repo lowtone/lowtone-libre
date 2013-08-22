@@ -57,7 +57,7 @@ namespace lowtone\libre {
 						PostDocument::BUILD_THUMBNAIL => true,
 						PostDocument::BUILD_COMMENTS => is_singular(),
 						PostDocument::BUILD_COMMENT_FORM => is_singular(),
-						PostDocument::BUILD_ADJACENT => is_singular()
+						PostDocument::BUILD_ADJACENT => is_single()
 					),
 				),
 				QueryDocument::BUILD_PAGINATION => true
@@ -132,7 +132,7 @@ namespace lowtone\libre {
 		/*if (!($libreDocument instanceof LibreDocument))
 			return trigger_error("Failed loading the Libre document");*/
 			
-		echo apply_filters(filterName("ouput"), $libreDocument->saveHTML());
+		echo apply_filters(filterName("output"), $libreDocument->saveHTML());
 
 		$log->write("Libre success!");
 

@@ -100,7 +100,9 @@
 
 			<xsl:apply-templates select="custom_fields" />
 			<xsl:apply-templates select="adjacent" />
-			<xsl:call-template name="comments" />
+			<xsl:call-template name="comments">
+				<xsl:with-param name="status" select="comment_status" />
+			</xsl:call-template>
 		</article>
 	</xsl:template>
 	
@@ -202,7 +204,7 @@
 					<xsl:value-of select="content" disable-output-escaping="yes" />
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="content" disable-output-escaping="yes" />
+					<xsl:value-of select="excerpt" disable-output-escaping="yes" />
 				</xsl:otherwise>
 			</xsl:choose>
 		</div>
