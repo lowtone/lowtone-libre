@@ -414,13 +414,15 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		if (is_admin())
 			return;
 
-		wp_enqueue_style(basename(get_stylesheet_directory()) . "-style", get_stylesheet_directory_uri() . "/style.css");
+		$version = $this->__themeData("Version");
+
+		wp_enqueue_style(basename(get_stylesheet_directory()) . "-style", get_stylesheet_directory_uri() . "/style.css", NULL, $version);
 
 		if ($stylesheet = $this->__stylesheet()) {
 			$basename = basename($stylesheet, ".css");
 			$dirname = basename(dirname($stylesheet));
 
-			wp_enqueue_style($dirname . "-" . $basename, $stylesheet);
+			wp_enqueue_style($dirname . "-" . $basename, $stylesheet, NULL, $version);
 		}
 	}
 
