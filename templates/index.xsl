@@ -8,6 +8,7 @@
 	<xsl:import href="partials/menus.xsl" />
 	<xsl:import href="partials/query.xsl" />
 	<xsl:import href="partials/sidebars.xsl" />
+	<xsl:import href="partials/breadcrumbs.xsl" />
 	
 	<xsl:output 
 		method="html" 
@@ -89,6 +90,7 @@
 		<xsl:param name="width">two-thirds</xsl:param>
 
 		<section id="main" class="{$width} column">
+			<xsl:apply-templates select="breadcrumbs" />
 			<xsl:apply-templates select="query" />
 		</section>
 	</xsl:template>
