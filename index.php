@@ -40,6 +40,8 @@ namespace lowtone\libre {
 
 		if (is_singular())
 			$sidebars[] = "post:" .  $GLOBALS["post"]->post_name;
+
+		$sidebars = apply_filters(filterName("sidebars"), $sidebars);
 		
 		$options = array(
 			LibreDocument::BUILD_INFO => true,
@@ -55,7 +57,7 @@ namespace lowtone\libre {
 						PostDocument::BUILD_THUMBNAIL => true,
 						PostDocument::BUILD_COMMENTS => is_singular(),
 						PostDocument::BUILD_COMMENT_FORM => is_singular(),
-						PostDocument::BUILD_ADJACENT => is_singular()
+						PostDocument::BUILD_ADJACENT => is_single()
 					),
 				),
 				QueryDocument::BUILD_PAGINATION => true
@@ -72,15 +74,15 @@ namespace lowtone\libre {
 			)
 		);
 		
-		$options = apply_filters("libre_document_options", $options);
+		$options = apply_filters(filterName("document_options"), $options);
 		
 		$libreDocument->build($options);
 		
 		if (is_super_admin() && isset($_GET["debug"])) 
 			$libreDocument->out(array(Document::OPTION_CONTENT_TYPE => Document::CONTENT_TYPE_XML));
 			
-		if ($template = apply_filters("libre_template", $libre->__template())) {
-			if (@constant("LOWTONE_LIBRE_APPEND_TEMPLATES") && ($appendTemplates = apply_filters("libre_append_templates", array(), $template))) {
+		if ($template = apply_filters(filterName("template"), $libre->__template())) {
+			if (src\Libre::appendTemplates() && ($appendTemplates = apply_filters(filterName("append_templates"), array(), $template))) {
 				$cachedFile = dirname($template) . "/.cache/" . basename($template, ".xsl") . "-" . sha1(filemtime($template) . "|" . serialize($appendTemplates)) . ".xsl";
 
 				if (!file_exists($cachedFile)) {
@@ -130,7 +132,7 @@ namespace lowtone\libre {
 		/*if (!($libreDocument instanceof LibreDocument))
 			return trigger_error("Failed loading the Libre document");*/
 			
-		echo apply_filters("libre_ouput", $libreDocument->saveHTML());
+		echo apply_filters(filterName("output"), $libreDocument->saveHTML());
 
 		$log->write("Libre success!");
 

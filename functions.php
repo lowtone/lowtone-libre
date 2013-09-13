@@ -81,9 +81,7 @@ namespace lowtone\libre {
 	}
 
 	function filterName($name) {
-		$name = "libre_{$name}";
-
-		return $name;
+		return "libre_{$name}";
 	}
 	
 }

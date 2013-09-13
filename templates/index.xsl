@@ -21,16 +21,7 @@
 	
 	<xsl:template match="libre">
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-		<xsl:text disable-output-escaping="yes">
-&lt;!--[if lt IE 7]&gt;      &lt;html class="no-js lt-ie9 lt-ie8 lt-ie7"&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 7]>         &lt;html class="no-js lt-ie9 lt-ie8"&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 8]&gt;         &lt;html class="no-js lt-ie9"&gt; &lt;![endif]--&gt;
-&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
-</xsl:text>
 		<html class="no-js">
-			<xsl:text disable-output-escaping="yes">
-&lt;!--&lt;![endif]--&gt;
-</xsl:text>
 			<xsl:call-template name="html_head" />
 			<xsl:call-template name="html_body" />
 		</html>
