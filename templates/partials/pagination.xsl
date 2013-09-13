@@ -49,9 +49,11 @@
 	<!-- Pages -->
 	
 	<xsl:template match="pages">
-		<ul class="pages">
-			<xsl:apply-templates select="page" />
-		</ul>
+		<li class="pages">
+			<ul>
+				<xsl:apply-templates select="page" />
+			</ul>
+		</li>
 	</xsl:template>
 	
 	
