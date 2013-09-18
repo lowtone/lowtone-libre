@@ -20,9 +20,11 @@
 	<xsl:template match="crumb">
 		<li>
 			<a>
-				<xsl:attribute name="href">
-					<xsl:value-of select="uri" />
-				</xsl:attribute>
+				<xsl:if test="uri != ''">
+					<xsl:attribute name="href">
+						<xsl:value-of select="uri" />
+					</xsl:attribute>
+				</xsl:if>
 				<xsl:attribute name="class">
 					<xsl:if test="position()=1">
 						<xsl:text>first </xsl:text>
@@ -32,7 +34,7 @@
 					</xsl:if>
 					<xsl:value-of select="class" />
 				</xsl:attribute>
-				<xsl:value-of select="title" />
+				<xsl:value-of select="title" disable-output-escaping="yes" />
 			</a>
 		</li>
 	</xsl:template>
