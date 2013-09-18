@@ -45,6 +45,7 @@ namespace lowtone\libre {
 		
 		$options = array(
 			LibreDocument::BUILD_INFO => true,
+			LibreDocument::BUILD_DOCUMENT_ATTRIBUTES => true,
 			LibreDocument::QUERY_DOCUMENT_OPTIONS => array(
 				QueryDocument::BUILD_POSTS => true,
 				QueryDocument::POST_COLLECTION_DOCUMENT_OPTIONS => array(

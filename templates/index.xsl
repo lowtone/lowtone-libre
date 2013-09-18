@@ -21,7 +21,8 @@
 	
 	<xsl:template match="libre">
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-		<html class="no-js">
+		<html>
+			<xsl:apply-templates select="attributes/html" />
 			<xsl:call-template name="html_head" />
 			<xsl:call-template name="html_body" />
 		</html>
@@ -40,9 +41,7 @@
 
 	<xsl:template name="html_body">
 		<body>
-			<xsl:attribute name="class">
-				<xsl:value-of select="info/body_class" />
-			</xsl:attribute>
+			<xsl:apply-templates select="attributes/body" />
 			<xsl:call-template name="header" />
 			<xsl:call-template name="body" />
 			<xsl:call-template name="footer" />
@@ -133,6 +132,17 @@
 			</div>
 		</footer>
 		<xsl:value-of select="footer" disable-output-escaping="yes" />
+	</xsl:template>
+
+
+	<!-- Attributes -->
+
+	<xsl:template match="attributes/*">
+		<xsl:for-each select="*">
+			<xsl:attribute name="{local-name()}">
+				<xsl:value-of select="." />
+			</xsl:attribute>
+		</xsl:for-each>
 	</xsl:template>
 
 

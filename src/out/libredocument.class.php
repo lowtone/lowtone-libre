@@ -17,6 +17,7 @@ use lowtone\Util,
 class LibreDocument extends Document {
 	
 	const BUILD_INFO = "build_info",
+		BUILD_DOCUMENT_ATTRIBUTES = "build_document_attributes",
 		BUILD_STYLES = "build_styles",
 		STYLES_DOCUMENT_OPTIONS = "styles_document_options",
 		BUILD_SCRIPTS = "build_scripts",
@@ -94,10 +95,38 @@ class LibreDocument extends Document {
 				$info = array_map(function($show) {
 					return get_bloginfo($show);
 				}, $info);
-
-				$info["body_class"] = implode(" ", get_body_class());
 				
 				$libreElement->appendCreateElement("info", $info);
+			}
+
+			// Document attributes
+			
+			if ($libreDocument->getBuildOption(LibreDocument::BUILD_DOCUMENT_ATTRIBUTES)) {
+
+				$attributes = array(
+						"html" => array(
+							"class" => "no-js"
+						),
+						"body" => array(
+							"class" => implode(" ", get_body_class())
+						),
+					);
+
+				if (is_rtl())
+					$attributes["html"]["dir"] = "rtl";
+
+				if ($lang = get_bloginfo("language")) {
+
+					$attributes["html"]["lang"] 
+						= $attributes["html"]["xml:lang"] 
+						= $lang;
+
+				}
+
+				$attributes = apply_filters(\lowtone\libre\filterName("document_attributes"), $attributes);
+
+				$libreElement->appendCreateElement("attributes", $attributes);
+
 			}
 			
 			// Styles
