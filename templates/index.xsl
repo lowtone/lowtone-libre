@@ -80,10 +80,21 @@
 		<xsl:param name="width">two-thirds</xsl:param>
 
 		<section id="main" class="{$width} column">
-			<xsl:apply-templates select="breadcrumbs" />
+			<xsl:call-template name="before_query" />
 			<xsl:apply-templates select="query" />
+			<xsl:call-template name="after_query" />
 		</section>
 	</xsl:template>
+
+
+	<!-- Before query -->
+
+	<xsl:template name="before_query" />
+
+
+	<!-- After query -->
+
+	<xsl:template name="after_query" />
 
 
 	<!-- Side -->
