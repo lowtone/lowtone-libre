@@ -902,6 +902,10 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		return false;
 	}
 
+	/**
+	 * Create a page title for the header.
+	 * @return array Returns an array with the parts for the page title.
+	 */
 	public function __title() {
 		$title = array();
 
@@ -930,7 +934,6 @@ class Libre extends HookHandler implements Documentable, Singleton {
 				$title["post_type_archive"] = apply_filters("post_type_archive_title", $archiveTitle);
 
 		}
-			
 
 		if (is_search()) 
 			$title["search"] = apply_filters("search_title", sprintf(__("Search results for &ldquo;%s&rdquo;", "lowtone_libre"), ($search = get_query_var("s"))), $search);

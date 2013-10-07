@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lowtone Libre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-04 17:29+0100\n"
-"PO-Revision-Date: 2013-06-04 17:30+0100\n"
+"POT-Creation-Date: 2013-10-07 13:11+0100\n"
+"PO-Revision-Date: 2013-10-07 13:11+0100\n"
 "Last-Translator: Paul van der Meijs <info@lowtone.nl>\n"
 "Language-Team: Lowtone <info@lowtone.nl>\n"
 "Language: nl_NL\n"
@@ -13,178 +13,197 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../functions.php:117
+#: ../shortcodes/readmore.php:26
+msgid "Read more"
+msgstr "Lees meer"
+
+#: ../src/libre.class.php:149
 #, php-format
 msgid "This sidebar is available when \"%s\" is displayed."
 msgstr "Deze zijbalk is beschikbaar wanneer \"%s\" weergegven wordt."
 
-#: ../functions.php:213
+#: ../src/libre.class.php:284
 msgid "Page Attributes"
 msgstr "Pagina attributen"
 
-#: ../functions.php:213
+#: ../src/libre.class.php:284
 msgid "Attributes"
 msgstr "Attributen"
 
-#: ../functions.php:222
+#: ../src/libre.class.php:294
 msgid "(no parent)"
 msgstr "(geen hoofd)"
 
-#: ../functions.php:232 ../functions.php:233
+#: ../src/libre.class.php:304 ../src/libre.class.php:305
 msgid "Parent"
 msgstr "Hoofd"
 
-#: ../functions.php:240
+#: ../src/libre.class.php:312
 msgid "Template"
 msgstr "Sjabloon"
 
-#: ../functions.php:241
+#: ../src/libre.class.php:313
 msgid "Page Template"
 msgstr "Pagina sjabloon"
 
-#: ../functions.php:243
+#: ../src/libre.class.php:315
 msgid "Default Template"
 msgstr "Standaard sjabloon"
 
-#: ../functions.php:257 ../functions.php:258
+#: ../src/libre.class.php:329 ../src/libre.class.php:330
 msgid "Order"
 msgstr "Volgorde"
 
-#: ../functions.php:261
+#: ../src/libre.class.php:333
 msgid "Need help? Use the Help tab in the upper right of your screen."
 msgstr "Hulp nodig? Gebruik de helptab rechtsboven op je scherm."
 
-#: ../functions.php:272 ../functions.php:281
+#: ../src/libre.class.php:348 ../src/libre.class.php:357
 msgid "Sidebars"
 msgstr "Zijbalken"
 
-#: ../functions.php:288
+#: ../src/libre.class.php:364
 #, php-format
 msgid "Click <a href=\"%s\">here</a> to configure the widgets."
 msgstr "Klik <a href=\"%s\">hier</a> om widgets te configureren."
 
-#: ../functions.php:794
-msgid "404"
-msgstr "404"
+#: ../src/libre.class.php:451
+msgid "Search for"
+msgstr "Zoeken naar"
 
-#: ../functions.php:794
-msgid "This sidebar is displayed when a page is not found."
-msgstr "Deze zijbalk is zichtbaar wanneer een pagina niet gevonden kan worden."
-
-#: ../functions.php:795
+#: ../src/libre.class.php:452 ../src/libre.class.php:453
+#: ../src/libre.class.php:470
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../functions.php:795
+#: ../src/libre.class.php:469
+msgid "404"
+msgstr "404"
+
+#: ../src/libre.class.php:469
+msgid "This sidebar is displayed when a page is not found."
+msgstr "Deze zijbalk is zichtbaar wanneer een pagina niet gevonden kan worden."
+
+#: ../src/libre.class.php:470
 msgid "This sidebar is displayed with search results."
 msgstr "Deze zijbalk wordt bij zoekresultaten weergegeven."
 
-#: ../functions.php:796
+#: ../src/libre.class.php:471
 msgid "Tax"
 msgstr "Tax"
 
-#: ../functions.php:796
+#: ../src/libre.class.php:471
 msgid "This sidebar is displayed with taxonomies."
 msgstr "Deze zijbalk is zichtbaar bij taxonomieën."
 
-#: ../functions.php:797
+#: ../src/libre.class.php:472
 msgid "Home"
 msgstr "Home"
 
-#: ../functions.php:797
+#: ../src/libre.class.php:472
 msgid "This sidebar is visible on the main post index."
 msgstr "Deze zijbalk is zichtbaar bij de hoofdindex van berichten."
 
-#: ../functions.php:798
+#: ../src/libre.class.php:473
 msgid "Front Page"
 msgstr "Voorpagina"
 
-#: ../functions.php:798
+#: ../src/libre.class.php:473
 msgid "This sidebar is only visible on the front page."
 msgstr "Deze zijbalk is zichtbaar op de voorpagina."
 
-#: ../functions.php:799
+#: ../src/libre.class.php:474
 msgid "Attachment"
 msgstr "Bijlage"
 
-#: ../functions.php:799
+#: ../src/libre.class.php:474
 msgid "This sidebar is displayed with attachments."
 msgstr "Deze zijbalk wordt weergegeven bij bijlagen."
 
-#: ../functions.php:800
+#: ../src/libre.class.php:475
 msgid "Single"
 msgstr "Enkel"
 
-#: ../functions.php:800
+#: ../src/libre.class.php:475
 msgid ""
 "This sidebar is visible when a single post is displayed (not with pages)."
 msgstr ""
 "Deze zijbalk is zichtbaar wanneer een enkel bericht wordt weergegeven (niet "
 "op pagina's)."
 
-#: ../functions.php:801
+#: ../src/libre.class.php:476
 msgid "Page"
 msgstr "Pagina"
 
-#: ../functions.php:801
+#: ../src/libre.class.php:476
 msgid "This sidebar is visible when a page is displayed."
 msgstr "Deze zijbalk is zichtbaar wanneer een pagina wordt weergegeven."
 
-#: ../functions.php:802
+#: ../src/libre.class.php:477
 msgid "Category"
 msgstr "Categorie"
 
-#: ../functions.php:802
+#: ../src/libre.class.php:477
 msgid "This sidebar is displayed with categories."
 msgstr "Deze zijbalk is zichtbaar bij categorieën."
 
-#: ../functions.php:803
+#: ../src/libre.class.php:478
 msgid "Tag"
 msgstr "Tag"
 
-#: ../functions.php:803
+#: ../src/libre.class.php:478
 msgid "This sidebar is displayed with tags."
 msgstr "Deze zijbalk is zichtbaar bij tags."
 
-#: ../functions.php:804
+#: ../src/libre.class.php:479
 msgid "Author"
 msgstr "Auteur"
 
-#: ../functions.php:804
+#: ../src/libre.class.php:479
 msgid "This sidebar is displayed when an author is displayed."
 msgstr "Deze zijblk wordt weergegeven bij een auteur."
 
-#: ../functions.php:805
+#: ../src/libre.class.php:480
 msgid "Date"
 msgstr "Datum"
 
-#: ../functions.php:805
+#: ../src/libre.class.php:480
 msgid "This sidebar is displayed a specific date is displayed."
 msgstr ""
 "Deze zijbalk is zichtbaar wanneer een specifieke datum wordt weergegeven."
 
-#: ../functions.php:806
+#: ../src/libre.class.php:481
 msgid "Archive"
 msgstr "Archief"
 
-#: ../functions.php:806
+#: ../src/libre.class.php:481
 msgid "This sidebar is displayed when the archive is displayed."
 msgstr "Deze zijbalk wordt weergegeven bij het archief."
 
-#: ../functions.php:807
+#: ../src/libre.class.php:482
 msgid "Sidebar"
 msgstr "Zijbalk"
 
-#: ../functions.php:807
+#: ../src/libre.class.php:482
 msgid "Default sidebar available on every page."
 msgstr "Standaard zijbalk beschikbaar op elke pagina."
 
-#: ../shortcodes/readmore.php:26
-msgid "Read more"
-msgstr "Lees meer"
+#: ../src/libre.class.php:939
+#, php-format
+msgid "Search results for &ldquo;%s&rdquo;"
+msgstr "Zoekresultaten voor &ldquo;%s&rdquo;"
+
+#: ../src/libre.class.php:942
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+#: ../src/libre.class.php:945
+#, php-format
+msgid "Page %s"
+msgstr "Pagina %s"
 
 #~ msgid "Back"
 #~ msgstr "Terug"
