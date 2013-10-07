@@ -221,15 +221,8 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		echo sprintf('<meta name="viewport" content="%s" />', $viewport);
 
 		// Title
-
-		$title = array(get_bloginfo("name"));
-
-		if (is_single() || is_page())
-			array_unshift($title, get_the_title());
-
-		$title = (array) apply_filters("title", $title);
 			
-		echo '<title>' . implode(apply_filters("title_separator", " - "), $title) . '</title>';
+		echo '<title>' . implode(apply_filters("title_separator", " - "), $this->__title()) . '</title>';
 
 	}
 
@@ -907,6 +900,53 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		}
 
 		return false;
+	}
+
+	public function __title() {
+		$title = array();
+
+		if (is_singular() && !is_front_page()) 
+			$title["single_post"] = apply_filters("single_post_title", get_the_title());
+
+		if (is_author())
+			$title["author"] = apply_filters("author_title", get_queried_object()->display_name);
+
+		if (is_post_type_archive() || is_home()) {
+			$archiveTitle = NULL;
+
+			if (is_home()) {
+
+				if ($home = get_post(get_option("page_for_posts")))
+					$archiveTitle = $home->post_title;
+				else 
+					$archiveTitle = get_post_type_object(get_post_type())->labels->name;
+
+				$arhiveTitle = apply_filters("home_title", $archiveTitle);
+
+			} else
+				$archiveTitle = get_queried_object()->labels->name;
+
+			if ($archiveTitle)
+				$title["post_type_archive"] = apply_filters("post_type_archive_title", $archiveTitle);
+
+		}
+			
+
+		if (is_search()) 
+			$title["search"] = apply_filters("search_title", sprintf(__("Search results for &ldquo;%s&rdquo;", "lowtone_libre"), ($search = get_query_var("s"))), $search);
+
+		if (is_404()) 
+			$title["not_found"] = apply_filters("404_title", __("Page not found", "lowtone_libre"));
+
+		if ($pageNumber = get_query_var("paged"))
+			$title["page"] = sprintf(__("Page %s", "lowtone_libre"), $pageNumber);
+
+		$title["site"] = get_bloginfo("name");
+
+		if (is_front_page() && ($description = get_bloginfo("description")))
+			$title["tagline"] = $description;
+		
+		return (array) apply_filters("title", $title);
 	}
 
 	// Hook handler
