@@ -935,6 +935,12 @@ class Libre extends HookHandler implements Documentable, Singleton {
 
 		}
 
+		if (is_category() || is_tag() || is_tax()) {
+			$title["taxonomy"] = apply_filters("taxonomy_title", get_taxonomy(get_queried_object()->taxonomy)->labels->name);
+
+			$title["term"] = get_queried_object()->name;
+		}
+
 		if (is_search()) 
 			$title["search"] = apply_filters("search_title", sprintf(__("Search results for &ldquo;%s&rdquo;", "lowtone_libre"), ($search = get_query_var("s"))), $search);
 
@@ -946,8 +952,10 @@ class Libre extends HookHandler implements Documentable, Singleton {
 
 		$title["site"] = get_bloginfo("name");
 
-		if (is_front_page() && ($description = get_bloginfo("description")))
-			$title["tagline"] = $description;
+		if (is_front_page())
+			$title["tagline"] = get_bloginfo("description");
+
+		$title = array_filter($title);
 		
 		return (array) apply_filters("title", $title);
 	}
