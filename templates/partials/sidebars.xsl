@@ -10,11 +10,14 @@
 	<!-- Sidebar -->
 	
 	<xsl:template match="sidebar">
+		<xsl:param name="element">aside</xsl:param>
 		<xsl:param name="width">one-third</xsl:param>
 		
-		<aside id="{@id}" class="{$width} column">
+		<xsl:element name="{$element}">
+			<xsl:attribute name="id"><xsl:value-of select="@id" /></xsl:attribute>
+			<xsl:attribute name="class"><xsl:value-of select="$width" /> column</xsl:attribute>
 			<xsl:apply-templates select="widgets/widget" />
-		</aside>
+		</xsl:element>
 	</xsl:template>
 
 </xsl:stylesheet>
