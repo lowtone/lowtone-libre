@@ -915,12 +915,12 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		if (is_author())
 			$title["author"] = apply_filters("author_title", get_queried_object()->display_name);
 
-		if (is_post_type_archive() || is_home()) {
+		if ((is_post_type_archive() || is_home()) && !is_front_page()) {
 			$archiveTitle = NULL;
 
 			if (is_home()) {
 
-				if ($home = get_post(get_option("page_for_posts")))
+				if (($pageForPosts = get_option("page_for_posts")) > 0 && ($home = get_post(get_option("page_for_posts"))))
 					$archiveTitle = $home->post_title;
 				else 
 					$archiveTitle = get_post_type_object(get_post_type())->labels->name;
