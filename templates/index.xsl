@@ -103,6 +103,11 @@
 		<xsl:param name="width">one-third</xsl:param>
 
 		<xsl:choose>
+			<xsl:when test="count(sidebars/sidebar[@id='front_page']/widgets/widget) &gt; 0">
+				<xsl:apply-templates select="sidebars/sidebar[@id='front_page']">
+					<xsl:with-param name="width" select="$width" />
+				</xsl:apply-templates>
+			</xsl:when>
 			<xsl:when test="count(sidebars/sidebar[@id='home']/widgets/widget) &gt; 0">
 				<xsl:apply-templates select="sidebars/sidebar[@id='home']">
 					<xsl:with-param name="width" select="$width" />
