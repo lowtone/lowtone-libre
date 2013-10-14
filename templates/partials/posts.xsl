@@ -88,6 +88,7 @@
 			<!-- Header -->
 
 			<xsl:call-template name="post_header">
+				<xsl:with-param name="singular" select="$singular" />
 			</xsl:call-template>
 
 			<!-- Content -->
