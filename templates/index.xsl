@@ -113,8 +113,18 @@
 					<xsl:with-param name="width" select="$width" />
 				</xsl:apply-templates>
 			</xsl:when>
+			<xsl:when test="count(sidebars/sidebar[@id='author']/widgets/widget) &gt; 0">
+				<xsl:apply-templates select="sidebars/sidebar[@id='author']">
+					<xsl:with-param name="width" select="$width" />
+				</xsl:apply-templates>
+			</xsl:when>
 			<xsl:when test="count(sidebars/sidebar[@id='page']/widgets/widget) &gt; 0">
 				<xsl:apply-templates select="sidebars/sidebar[@id='page']">
+					<xsl:with-param name="width" select="$width" />
+				</xsl:apply-templates>
+			</xsl:when>
+			<xsl:when test="count(sidebars/sidebar[@id='tax']/widgets/widget) &gt; 0">
+				<xsl:apply-templates select="sidebars/sidebar[@id='tax']">
 					<xsl:with-param name="width" select="$width" />
 				</xsl:apply-templates>
 			</xsl:when>

@@ -14,14 +14,9 @@
 	
 	<xsl:template match="posts">
 		<xsl:variable name="hasPosts" select="boolean(count(post))" />
-		
+
 		<div>
-			<xsl:attribute name="class">
-				<xsl:text>posts</xsl:text>
-				<xsl:if test="not($hasPosts)">
-					<xsl:text> empty</xsl:text>
-				</xsl:if>
-			</xsl:attribute>
+			<xsl:call-template name="posts_class" />
 			
 			<xsl:choose>
 				<xsl:when test="$hasPosts">
@@ -60,6 +55,20 @@
 			</xsl:choose>
 		</div>
 	</xsl:template>
+
+
+	<!-- Posts class -->
+
+	<xsl:template name="posts_class">
+		<xsl:param name="hasPosts" select="boolean(count(post))" />
+		
+		<xsl:attribute name="class">
+			<xsl:text>posts</xsl:text>
+			<xsl:if test="not($hasPosts)">
+				<xsl:text> empty</xsl:text>
+			</xsl:if>
+		</xsl:attribute>
+	</xsl:template>
 	
 	
 	<!-- Post -->
@@ -72,7 +81,7 @@
 		
 		<article id="{name}" data-id="{@id}" itemscope="itemscope" itemtype="http://schema.org/Article">
 			<xsl:call-template name="post_class">
-				<xsl:with-param name="singular"><xsl:value-of select="$singular" /></xsl:with-param>
+				<xsl:with-param name="singular" select="$singular" />
 			</xsl:call-template>
 
 			<!-- Thumbnail -->
@@ -158,10 +167,16 @@
 			<h1>
 				<xsl:choose>
 					<xsl:when test="$singular">
-						<span itemprop="name"><xsl:value-of select="title" disable-output-escaping="yes" /></span>
+						<xsl:call-template name="post_title">
+							<xsl:with-param name="singular" select="$singular" />
+						</xsl:call-template>
 					</xsl:when>
 					<xsl:otherwise>
-						<a href="{permalink}"><span itemprop="name"><xsl:value-of select="title" disable-output-escaping="yes" /></span></a>
+						<a href="{permalink}">
+							<xsl:call-template name="post_title">
+								<xsl:with-param name="singular" select="$singular" />
+							</xsl:call-template>
+						</a>
 					</xsl:otherwise>
 				</xsl:choose>
 			</h1>
@@ -171,6 +186,13 @@
 				<xsl:call-template name="post_author" />
 			</div>
 		</header>
+	</xsl:template>
+
+
+	<xsl:template name="post_title">
+		<xsl:param name="singular" />
+
+		<span itemprop="name"><xsl:value-of select="title" disable-output-escaping="yes" /></span>
 	</xsl:template>
 
 

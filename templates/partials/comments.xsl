@@ -34,14 +34,16 @@
 			<header>
 				<h1><xsl:value-of select="locales/title" /></h1>
 			</header>
-			<xsl:choose>
-				<xsl:when test="$hasComments">
-					<xsl:apply-templates select="comment" />
-				</xsl:when>
-				<xsl:otherwise>
-					<p class="no-items"><xsl:value-of select="locales/no_comments" /></p>
-				</xsl:otherwise>
-			</xsl:choose>
+			<div class="comments_body">
+				<xsl:choose>
+					<xsl:when test="$hasComments">
+						<xsl:apply-templates select="comment" />
+					</xsl:when>
+					<xsl:otherwise>
+						<p class="no-items"><xsl:value-of select="locales/no_comments" /></p>
+					</xsl:otherwise>
+				</xsl:choose>
+			</div>
 		</div>
 	</xsl:template>
 	
