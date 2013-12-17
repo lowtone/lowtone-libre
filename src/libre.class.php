@@ -942,7 +942,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		}
 
 		if (is_search()) 
-			$title["search"] = apply_filters("search_title", sprintf(__("Search results for &ldquo;%s&rdquo;", "lowtone_libre"), ($search = get_query_var("s"))), $search);
+			$title["search"] = apply_filters("search_title", ($search = get_query_var("s")) ? sprintf(__("Search results for &ldquo;%s&rdquo;", "lowtone_libre"), $search) : __("Search", "lowtone-libre"), $search);
 
 		if (is_404()) 
 			$title["not_found"] = apply_filters("404_title", __("Page not found", "lowtone_libre"));
