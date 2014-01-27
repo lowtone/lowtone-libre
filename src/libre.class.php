@@ -15,7 +15,7 @@ use lowtone\dom\Document,
 
 /**
  * @author Paul van der Meijs <code@lowtone.nl>
- * @copyright Copyright (c) 2013, Paul van der Meijs
+ * @copyright Copyright (c) 2013-2014, Paul van der Meijs
  * @license http://wordpress.lowtone.nl/license/
  * @version 1.0
  * @package wordpress\themes\lowtone\libre\src
@@ -62,6 +62,10 @@ class Libre extends HookHandler implements Documentable, Singleton {
 	 * Constructor for the Libre class.
 	 */
 	protected function __construct() {
+		
+		$templateDirectory = get_template_directory();
+
+		$stylesheetDirectory = get_stylesheet_directory();
 
 		// Set config defaults
 		
@@ -78,14 +82,12 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		
 		// Load language files
 		
-		foreach (array(get_stylesheet_directory(), get_template_directory()) as $base) {
-			if (!is_dir($dir = $base . "/languages"))
-				continue;
-			
-			load_theme_textdomain("lowtone_libre", $dir);
-			
-			break;
-		}
+		$languagesDirectory = "languages";
+		
+		load_theme_textdomain("lowtone_libre", "{$templateDirectory}/{$languagesDirectory}");
+
+		if ($stylesheetDirectory != $templateDirectory && is_dir($stylesheetLanguagesDirectory = "{$stylesheetDirectory}/{$languagesDirectory}"))
+			load_theme_textdomain("lowtone_libre_", last(explode("-", basename($stylesheetDirectory)), $stylesheetLanguagesDirectory));
 
 		// Enable thumbnails
 		 
@@ -99,7 +101,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		
 		$menus = array();
 		
-		foreach (array_filter($this->__themeData("menus")) as $menu) 
+		foreach (array_filter((array) $this->__themeData("menus")) as $menu) 
 			$menus[strtolower(preg_replace("/\W+/", "_", $menu))] = __($menu);
 		
 		register_nav_menus($menus);
@@ -171,7 +173,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 			
 			// Add shortcodes
 			
-			foreach (array(get_stylesheet_directory(), get_template_directory()) as $base) {
+			foreach (array($stylesheetDirectory, $templateDirectory) as $base) {
 				if (!is_dir($dir = $base . "/shortcodes"))
 					continue;
 				
