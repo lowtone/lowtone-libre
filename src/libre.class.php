@@ -197,6 +197,20 @@ class Libre extends HookHandler implements Documentable, Singleton {
 			
 		}
 
+		// Remove version mentions
+		
+		add_filter("the_generator", "__return_false", 9999);
+
+		$removeSrc = function($src) {
+			if (strpos($src, "ver=" . get_bloginfo("version")))
+				$src = remove_query_arg("ver", $src);
+
+			return $src;
+		};
+
+		add_filter("style_loader_src", $removeSrc, 9999);
+		add_filter("script_loader_src", $removeSrc, 9999);
+
 		$this->__add();
 
 	}
