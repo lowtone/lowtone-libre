@@ -87,7 +87,7 @@ class Libre extends HookHandler implements Documentable, Singleton {
 		load_theme_textdomain("lowtone_libre", "{$templateDirectory}/{$languagesDirectory}");
 
 		if ($stylesheetDirectory != $templateDirectory && is_dir($stylesheetLanguagesDirectory = "{$stylesheetDirectory}/{$languagesDirectory}"))
-			load_theme_textdomain("lowtone_libre_", last(explode("-", basename($stylesheetDirectory)), $stylesheetLanguagesDirectory));
+			load_theme_textdomain("lowtone_libre_" . end(explode("-", basename($stylesheetDirectory))), $stylesheetLanguagesDirectory);
 
 		// Enable thumbnails
 		 
